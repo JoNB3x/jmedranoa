@@ -61,10 +61,25 @@
     .card-zoom:hover {
       transform: scale(1.15);
     }
-    
+
     html {
-  scroll-behavior: smooth;
-}
+      scroll-behavior: smooth;
+    }
+
+    /* Menú futurista */
+    .nav-link {
+      transition: all 0.25s ease;
+      padding: 4px 10px; /* corregido para que no mueva el header */
+      border-radius: 6px;
+      display: inline-block;
+    }
+
+    .nav-link:hover {
+      background-color: var(--primary-color);
+      color: white !important;
+      box-shadow: 0 0 12px var(--glow-color);
+    }
+
   </style>
 </head>
 
@@ -84,9 +99,9 @@
     </div>
 
     <nav class="space-x-6 hidden md:block">
-      <a href="#servicios" class="hover:text-[var(--primary-color)]">Servicios</a>
-      <a href="#arcade" class="hover:text-[var(--primary-color)]">Sobre Mi</a>
-      <a href="#contacto" class="hover:text-[var(--primary-color)]">Contacto</a>
+      <a href="#servicios" class="nav-link">Servicios</a>
+      <a href="#arcade" class="nav-link">Sobre Mi</a>
+      <a href="#contacto" class="nav-link">Contacto</a>
     </nav>
 
     <a href="#contacto" class="md:hidden bg-[var(--primary-color)] hover:bg-[var(--primary-hover)] px-4 py-2 rounded-lg">
@@ -189,8 +204,8 @@
 
     <h3 class="text-3xl font-bold mb-10 text-[var(--primary-color)]">Sobre Mi</h3>
 
-    <div class="max-w-3xl mx-auto bg-[var(--dark-gray)]
-]/30 p-10 rounded-xl border border-[var(--primary-color)] shadow-[0_0_20px_var(--glow-color)] pulse">
+    <!-- CAJA CORREGIDA -->
+    <div class="max-w-3xl mx-auto bg-[rgba(22,27,34,0.75)] p-10 rounded-xl border border-[var(--primary-color)] shadow-[0_0_20px_var(--glow-color)] pulse backdrop-blur-md">
 
       <div class="flex justify-center mb-6">
         <img src="https://github.com/JoNB3x/jmedranoa/blob/main/assets/img/yo.png?raw=true"
@@ -202,6 +217,7 @@
       </p>
 
       <a href="https://raw.githubusercontent.com/JoNB3x/jmedranoa/main/assets/img/CV_Jhonnathan_Medrano_2026.pdf"
+         target="_blank"
          class="bg-[var(--primary-color)] hover:bg-[var(--primary-hover)] px-6 py-3 rounded-lg font-semibold inline-block pulse">
         Ver Curriculum
       </a>
