@@ -3,113 +3,245 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jhon | Servicios Técnicos & Arcade</title>
+  <title>Jhonnathan Medrano | Servicios Técnicos & Arcade</title>
 
   <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <!-- Fuente similar a Airtek -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     body { font-family: 'Montserrat', sans-serif; }
+
+    /* Animaciones estilo Airtek */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease-out;
+    }
+    .fade-up.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .fade-in {
+      opacity: 0;
+      transition: opacity 1s ease-out;
+    }
+    .fade-in.show {
+      opacity: 1;
+    }
+
+    .zoom-in {
+      opacity: 0;
+      transform: scale(1.05);
+      transition: all 0.9s ease-out;
+    }
+    .zoom-in.show {
+      opacity: 1;
+      transform: scale(1);
+    }
+    
+    .card-zoom {
+  transition: transform 0.3s ease;
+}
+
+.card-zoom:hover {
+  transform: scale(1.2);
+}
+
   </style>
 </head>
 
-<body class="bg-gray-900 text-white">
+<body class="bg-black text-white">
 
-  <!-- NAV -->
-  <header class="fixed top-0 w-full bg-gray-900/80 backdrop-blur-lg z-50">
-    <div class="max-w-6xl mx-auto flex justify-between items-center py-4 px-6">
-      <h1 class="text-xl font-bold tracking-wide">JHON</h1>
-      <nav class="space-x-6 hidden md:block">
-        <a href="#servicios" class="hover:text-blue-400">Servicios</a>
-        <a href="#arcade" class="hover:text-blue-400">Arcade</a>
-        <a href="#contacto" class="hover:text-blue-400">Contacto</a>
-      </nav>
-      <a href="#contacto" class="md:hidden bg-blue-500 px-4 py-2 rounded-lg">Contacto</a>
+ <!-- NAV -->
+<header class="fixed top-0 w-full bg-black/80 backdrop-blur-lg z-50 fade-in border-b border-red-600">
+  <div class="max-w-6xl mx-auto flex justify-between items-center py-4 px-6">
+
+    <!-- Bloque del nombre -->
+    <div class="flex flex-col">
+      <h1 class="text-xl font-bold tracking-wide text-red-500">
+        JHONNATHAN MEDRANO
+      </h1>
+
+      <!-- Línea debajo del nombre en fuente light -->
+      <span class="text-sm font-light tracking-wide text-red-400">
+        Técnico Electrónica
+      </span>
     </div>
-  </header>
 
-  <!-- HERO -->
-  <section class="h-screen flex items-center justify-center bg-cover bg-center"
-    style="background-image: url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1400&q=80');">
+    <!-- Menú -->
+    <nav class="space-x-6 hidden md:block">
+      <a href="#servicios" class="hover:text-red-400">Servicios</a>
+      <a href="#arcade" class="hover:text-red-400">Sobre Mi</a>
+      <a href="#contacto" class="hover:text-red-400">Contacto</a>
+    </nav>
 
-    <div class="bg-black/60 p-10 rounded-xl text-center backdrop-blur-md">
-      <h2 class="text-4xl md:text-6xl font-extrabold mb-4">
-        Soluciones Técnicas & Arcade
-      </h2>
-      <p class="text-lg md:text-xl mb-6">
-        Computadoras, electrónica y máquinas arcade con precisión profesional.
-      </p>
-      <a href="#contacto"
-         class="bg-blue-500 hover:bg-blue-600 px-6 py-3 rounded-lg text-lg font-semibold">
-        Contactar ahora
-      </a>
-    </div>
-  </section>
+    <!-- Botón móvil -->
+    <a href="#contacto" class="md:hidden bg-red-600 px-4 py-2 rounded-lg">
+      Contacto
+    </a>
 
-  <!-- SERVICIOS -->
-  <section id="servicios" class="py-20 bg-gray-900">
-    <div class="max-w-6xl mx-auto px-6">
-      <h3 class="text-3xl font-bold mb-10 text-center">Servicios Técnicos</h3>
+  </div>
+</header>
 
-      <div class="grid md:grid-cols-3 gap-10">
-        <div class="bg-gray-800 p-6 rounded-xl shadow-lg">
-          <h4 class="text-xl font-semibold mb-2">Reparación de computadoras</h4>
-          <p class="text-gray-300">Diagnóstico y reparación profesional.</p>
-        </div>
+  <!-- HERO con Video de Fondo -->
+<section class="relative h-screen flex items-center justify-center overflow-hidden">
 
-        <div class="bg-gray-800 p-6 rounded-xl shadow-lg">
-          <h4 class="text-xl font-semibold mb-2">Mantenimiento preventivo</h4>
-          <p class="text-gray-300">Optimización y limpieza profunda.</p>
-        </div>
+  <!-- Video de fondo -->
+  <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover">
+    <source src="https://iaapa-web.s3.us-west-2.amazonaws.com/public/2024-12/people-video.mp4?VersionId=Gw47aWu2yigkH2mzvZfevR4kapeBe4hv" type="video/mp4">
+  </video>
 
-        <div class="bg-gray-800 p-6 rounded-xl shadow-lg">
-          <h4 class="text-xl font-semibold mb-2">Instalación de software</h4>
-          <p class="text-gray-300">Sistemas, drivers y configuraciones.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- Capa oscura -->
+  <div class="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
 
-  <!-- ARCADE -->
-  <section id="arcade" class="py-20 bg-gray-800">
-    <div class="max-w-6xl mx-auto px-6">
-      <h3 class="text-3xl font-bold mb-10 text-center">Arcade & Modding</h3>
+  <!-- Contenido -->
+  <div class="relative z-10 p-10 rounded-xl text-center fade-up">
+    <h2 class="text-4xl md:text-6xl font-extrabold mb-4">
+      Soluciones Técnicas & Arcade
+    </h2>
+    <p class="text-lg md:text-xl mb-6">
+      Computadoras, electrónica y máquinas arcade con precisión profesional.
+    </p>
+    <a href="#contacto"
+       class="bg-red-600 hover:bg-red-700 px-6 py-3 rounded-lg text-lg font-semibold">
+      Contactar ahora
+    </a>
+  </div>
 
-      <div class="grid md:grid-cols-2 gap-10 items-center">
-        <img src="https://images.unsplash.com/photo-1581091012184-5c8af8d1d4c1?auto=format&fit=crop&w=800&q=80"
-             class="rounded-xl shadow-lg">
+</section>
 
-        <div>
-          <h4 class="text-2xl font-semibold mb-4">Construcción de máquinas arcade</h4>
-          <p class="text-gray-300 mb-4">
-            Sistemas ITGMania, Pump, paneles personalizados y electrónica aplicada.
+<!-- SERVICIOS (Tarjetas estilo GeoNex con iconos Font Awesome) -->
+<section id="servicios" class="py-20 bg-black">
+
+  <!-- CONTENEDOR PREMIUM FULL WIDTH -->
+  <div class="w-full px-6 relative">
+
+    <!-- Borde luminoso -->
+    <div class="absolute inset-0 rounded-xl border border-red-600 opacity-40 blur-sm"></div>
+
+    <!-- Caja principal -->
+    <div class="relative bg-black/40 backdrop-blur-md p-10 rounded-xl border border-red-600 shadow-red-600/30 shadow-xl">
+
+      <h3 class="text-3xl font-bold mb-10 text-center fade-up text-red-500">
+        Servicios Técnicos
+      </h3>
+
+      <div class="grid md:grid-cols-4 gap-8">
+
+        <!-- Tarjeta 1 -->
+        <div class="bg-gray-900 p-6 rounded-xl border border-red-600 shadow-lg 
+                    hover:shadow-red-600/40 transition fade-up text-center card-zoom">
+          <div class="mb-4 text-red-500 text-5xl">
+            <i class="fa-solid fa-computer"></i>
+          </div>
+          <h4 class="text-xl font-semibold mb-2 text-red-400">Soporte PC / Mac</h4>
+          <p class="text-gray-300 text-sm">
+            Formateo, optimización y mantenimiento correctivo.
           </p>
-          <a href="#contacto"
-             class="bg-blue-500 hover:bg-blue-600 px-6 py-3 rounded-lg font-semibold">
-            Solicitar proyecto
-          </a>
         </div>
+
+        <!-- Tarjeta 2 -->
+        <div class="bg-gray-900 p-6 rounded-xl border border-red-600 shadow-lg 
+                    hover:shadow-red-600/40 transition fade-up text-center card-zoom">
+          <div class="mb-4 text-red-500 text-5xl">
+            <i class="fa-solid fa-camera"></i>
+          </div>
+          <h4 class="text-xl font-semibold mb-2 text-red-400">CCTV e Infraestructura</h4>
+          <p class="text-gray-300 text-sm">
+            Instalación, Cableado, Presupuesto y configuración.
+          </p>
+        </div>
+
+        <!-- Tarjeta 3 -->
+        <div class="bg-gray-900 p-6 rounded-xl border border-red-600 shadow-lg 
+                    hover:shadow-red-600/40 transition fade-up text-center card-zoom">
+          <div class="mb-4 text-red-500 text-5xl">
+            <i class="fa-solid fa-microchip"></i>
+          </div>
+          <h4 class="text-xl font-semibold mb-2 text-red-400">Electrónica y Software</h4>
+          <p class="text-gray-300 text-sm">
+            Análisis y diagnóstico de circuitos y hardware.
+          </p>
+        </div>
+
+        <!-- Tarjeta 4 -->
+        <div class="bg-gray-900 p-6 rounded-xl border border-red-600 shadow-lg 
+                    hover:shadow-red-600/40 transition fade-up text-center card-zoom">
+          <div class="mb-4 text-red-500 text-5xl">
+            <i class="fa-solid fa-gamepad"></i>
+          </div>
+          <h4 class="text-xl font-semibold mb-2 text-red-400">Máquinas Arcade</h4>
+          <p class="text-gray-300 text-sm">
+            Mantenimiento, restauración y actualización de sistemas Arcade.
+          </p>
+        </div>
+
       </div>
+
     </div>
-  </section>
+  </div>
+
+</section>
+
+<!-- SOBRE MI con Parallax -->
+<section 
+  id="arcade"
+  class="mt-10 py-24 bg-fixed bg-cover bg-center relative"
+  style="background-image: url('https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=1400&q=80');">
+
+  <!-- Capa oscura -->
+  <div class="absolute inset-0 bg-black/40 backdrop-blur-sm"></div>
+
+  <div class="relative z-10 max-w-6xl mx-auto px-6 text-center fade-up">
+
+    <h3 class="text-3xl font-bold mb-10 text-red-500">Sobre Mi</h3>
+
+    <!-- Caja principal -->
+    <div class="max-w-3xl mx-auto bg-gray-900/60 p-10 rounded-xl border border-red-600 shadow-lg backdrop-blur-md">
+
+      <!-- FOTO -->
+      <div class="flex justify-center mb-6">
+        <img src="TU_FOTO_AQUI.jpg" class="w-40 h-40 rounded-full border-4 border-red-600 shadow-lg object-cover">
+      </div>
+
+      <!-- DESCRIPCIÓN -->
+      <p class="text-gray-300 mb-6 leading-relaxed">
+        Técnico Especialista en Electrónica y Telecomunicaciones con sólida experiencia internacional en soporte IT, sistemas de geolocalización (GPS) y mantenimiento de hardware de entretenimiento.
+      </p>
+
+      <!-- BOTÓN CV -->
+      <a href="TU_CV.pdf"
+         class="bg-red-600 hover:bg-red-700 px-6 py-3 rounded-lg font-semibold inline-block">
+        Ver Curriculum
+      </a>
+
+    </div>
+
+  </div>
+</section>
+
 
   <!-- CONTACTO -->
-  <section id="contacto" class="py-20 bg-gray-900">
-    <div class="max-w-6xl mx-auto px-6 text-center">
-      <h3 class="text-3xl font-bold mb-6">Contacto</h3>
+  <section id="contacto" class="py-20 bg-black">
+    <div class="max-w-6xl mx-auto px-6 text-center fade-up">
+      <h3 class="text-3xl font-bold mb-6 text-red-500">Contacto</h3>
       <p class="text-gray-300 mb-6">Atención directa y rápida.</p>
 
       <div class="space-y-4">
         <a href="https://wa.me/584246706389"
-           class="block bg-green-500 hover:bg-green-600 px-6 py-3 rounded-lg font-semibold">
+           class="block bg-green-600 hover:bg-green-700 px-6 py-3 rounded-lg font-semibold">
           WhatsApp
         </a>
 
         <a href="https://t.me/airtekinternet"
-           class="block bg-blue-500 hover:bg-blue-600 px-6 py-3 rounded-lg font-semibold">
+           class="block bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg font-semibold">
           Telegram
         </a>
 
@@ -122,10 +254,23 @@
   </section>
 
   <!-- FOOTER -->
-  <footer class="py-6 bg-black text-center text-gray-400">
-    © 2026 Jhon — Servicios Técnicos & Arcade
+  <footer class="py-6 bg-black text-center text-gray-400 border-t border-red-600 fade-in">
+    © 2026 Jhonnathan Medrano — Servicios Técnicos & Arcade
   </footer>
+
+  <!-- SCRIPT DE ANIMACIONES -->
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll('.fade-up, .fade-in, .zoom-in')
+      .forEach(el => observer.observe(el));
+  </script>
 
 </body>
 </html>
-
