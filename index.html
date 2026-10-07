@@ -10,7 +10,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
     <!-- Fuente Montserrat -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&amp;display=swap"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&amp;display=swap"
       rel="stylesheet"
     />
     <style>
@@ -21,9 +21,9 @@
       :root {
         --primary-color: #ff4f00; /* Naranja Carrera */
         --primary-hover: #e64600;
-        --dark-color: #0f1216;
-        --dark-gray: #161b22;
-        --card-bg: rgba(22, 27, 34, 0.92);
+        --dark-color: #0b0e13;
+        --dark-gray: #151a22;
+        --card-bg: rgba(21, 26, 34, 0.95);
         --glow-color: rgba(255, 79, 0, 0.6);
         --glow-subtle: rgba(255, 79, 0, 0.25);
       }
@@ -34,7 +34,7 @@
           box-shadow: 0 0 10px var(--glow-color);
         }
         50% {
-          box-shadow: 0 0 20px var(--glow-color);
+          box-shadow: 0 0 22px var(--glow-color);
         }
         100% {
           box-shadow: 0 0 10px var(--glow-color);
@@ -49,7 +49,7 @@
       .fade-up {
         opacity: 0;
         transform: translateY(30px);
-        transition: all 0.8s ease-out;
+        transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
       }
       .fade-up.show {
         opacity: 1;
@@ -64,17 +64,18 @@
         opacity: 1;
       }
 
-      /* Efectos de tarjeta interactiva */
+      /* Efectos de tarjeta interactiva con presencia uniforme */
       .card-zoom {
         transition:
-          transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-          border-color 0.25s ease,
-          box-shadow 0.25s ease;
+          transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+          border-color 0.28s ease,
+          box-shadow 0.28s ease,
+          background-color 0.28s ease;
       }
       .card-zoom:hover {
-        transform: translateY(-5px);
-        border-color: var(--primary-color);
-        box-shadow: 0 10px 25px rgba(255, 79, 0, 0.3);
+        transform: translateY(-6px);
+        border-color: var(--primary-color) !important;
+        box-shadow: 0 12px 30px rgba(255, 79, 0, 0.35);
       }
 
       html {
@@ -84,33 +85,33 @@
       /* Enlaces de menú */
       .nav-link {
         transition: all 0.25s ease;
-        padding: 6px 14px;
-        border-radius: 6px;
+        padding: 8px 18px;
+        border-radius: 8px;
         display: inline-block;
-        font-weight: 500;
-        font-size: 0.925rem;
+        font-weight: 600;
+        font-size: 1rem;
       }
 
       .nav-link:hover {
         background-color: var(--primary-color);
         color: white !important;
-        box-shadow: 0 0 14px var(--glow-color);
+        box-shadow: 0 0 16px var(--glow-color);
       }
 
-      /* Badges técnicos */
+      /* Badges técnicos aumentados para mejor lectura */
       .tech-tag {
-        font-size: 0.72rem;
+        font-size: 0.8rem;
         letter-spacing: 0.06em;
         text-transform: uppercase;
-        padding: 4px 10px;
+        padding: 5px 12px;
         border-radius: 9999px;
-        border: 1px solid rgba(255, 79, 0, 0.4);
-        background: rgba(255, 79, 0, 0.12);
-        color: #ff8a50;
+        border: 1px solid rgba(255, 79, 0, 0.45);
+        background: rgba(255, 79, 0, 0.14);
+        color: #ff9158;
         display: inline-flex;
         align-items: center;
         gap: 6px;
-        font-weight: 600;
+        font-weight: 700;
       }
 
       /* Scrollbar personalizada para tira de miniaturas */
@@ -127,29 +128,34 @@
       }
     </style>
   </head>
-  <body class="bg-[var(--dark-color)] text-white selection:bg-[var(--primary-color)] selection:text-white">
+  <body
+    class="bg-[var(--dark-color)] text-white selection:bg-[var(--primary-color)] selection:text-white text-base md:text-lg antialiased"
+  >
     <!-- NAVEGACIÓN -->
     <header
-      class="fixed top-0 w-full bg-black/85 backdrop-blur-lg z-40 fade-in border-b border-[var(--primary-color)] pulse"
+      class="fixed top-0 w-full bg-black/90 backdrop-blur-md z-40 fade-in border-b border-[var(--primary-color)] pulse"
     >
-      <div class="max-w-6xl mx-auto flex justify-between items-center py-4 px-6">
+      <div class="max-w-7xl mx-auto flex justify-between items-center py-4 px-6 md:px-8">
         <div class="flex flex-col">
-          <a class="text-xl font-bold tracking-wider text-[var(--primary-color)] flex items-center gap-2" href="#">
-            <i class="fa-solid fa-bolt text-sm"></i>
+          <a
+            class="text-xl md:text-2xl font-black tracking-wider text-[var(--primary-color)] flex items-center gap-2.5"
+            href="#"
+          >
+            <i class="fa-solid fa-bolt text-base"></i>
             JHONNATHAN MEDRANO
           </a>
-          <span class="text-xs font-medium tracking-widest uppercase text-gray-400">
+          <span class="text-xs md:text-sm font-semibold tracking-widest uppercase text-gray-300 mt-0.5">
             Técnico en Electrónica &amp; Arcade
           </span>
         </div>
-        <nav class="space-x-2 hidden md:flex items-center">
-          <a class="nav-link text-gray-300" href="#servicios">Servicios</a>
-          <a class="nav-link text-gray-300" href="#portafolio">Portafolio</a>
-          <a class="nav-link text-gray-300" href="#arcade">Sobre Mí</a>
-          <a class="nav-link text-gray-300" href="#contacto">Contacto</a>
+        <nav class="space-x-3 hidden md:flex items-center">
+          <a class="nav-link text-gray-200" href="#servicios">Servicios</a>
+          <a class="nav-link text-gray-200" href="#portafolio">Portafolio</a>
+          <a class="nav-link text-gray-200" href="#arcade">Sobre Mí</a>
+          <a class="nav-link text-gray-200" href="#contacto">Contacto</a>
         </nav>
         <a
-          class="md:hidden bg-[var(--primary-color)] hover:bg-[var(--primary-hover)] text-white text-sm font-semibold px-4 py-2 rounded-lg transition shadow-md"
+          class="md:hidden bg-[var(--primary-color)] hover:bg-[var(--primary-hover)] text-white text-sm font-bold px-4 py-2.5 rounded-lg transition shadow-md"
           href="#contacto"
         >
           Contacto
@@ -157,122 +163,130 @@
       </div>
     </header>
     <!-- SECCIÓN HERO -->
-    <section class="relative h-screen flex items-center justify-center overflow-hidden pt-16">
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 pb-16">
       <video autoplay="" class="absolute inset-0 w-full h-full object-cover" loop="" muted="" playsinline="">
         <source
           src="https://iaapa-web.s3.us-west-2.amazonaws.com/public/2024-12/people-video.mp4?VersionId=Gw47aWu2yigkH2mzvZfevR4kapeBe4hv"
           type="video/mp4"
         />
       </video>
-      <div class="absolute inset-0 bg-black/75 backdrop-blur-[2px]"></div>
-      <div class="relative z-10 max-w-4xl px-6 py-10 rounded-2xl text-center fade-up">
+      <div class="absolute inset-0 bg-black/80 backdrop-blur-[2px]"></div>
+      <div class="relative z-10 max-w-5xl px-6 py-12 rounded-3xl text-center fade-up">
         <div
-          class="inline-flex items-center gap-2 px-3 py-1 mb-6 rounded-full border border-[var(--primary-color)]/60 bg-black/50 text-[var(--primary-color)] text-xs tracking-widest uppercase font-semibold"
+          class="inline-flex items-center gap-2.5 px-4 py-2 mb-6 rounded-full border border-[var(--primary-color)]/70 bg-black/60 text-[var(--primary-color)] text-xs md:text-sm tracking-widest uppercase font-bold"
         >
-          <span class="w-2 h-2 rounded-full bg-[var(--primary-color)] animate-ping"></span>
+          <span class="w-2.5 h-2.5 rounded-full bg-[var(--primary-color)] animate-ping"></span>
           Soporte Técnico Internacional &amp; Nacional
         </div>
-        <h2 class="text-4xl md:text-6xl font-extrabold mb-6 text-white tracking-tight">
+        <h2 class="text-4xl sm:text-5xl md:text-7xl font-extrabold mb-6 text-white tracking-tight leading-tight">
           Soluciones Técnicas &amp;
-          <span class="text-[var(--primary-color)] drop-shadow-[0_0_15px_var(--glow-color)]">Arcade</span>
+          <span class="text-[var(--primary-color)] drop-shadow-[0_0_20px_var(--glow-color)]">Arcade</span>
         </h2>
-        <p class="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto font-light leading-relaxed">
+        <p class="text-xl md:text-2xl text-gray-200 mb-10 max-w-3xl mx-auto font-normal leading-relaxed">
           Especialista en mantenimiento de hardware de entretenimiento, telecomunicaciones y soporte IT de alto
           rendimiento para tu negocio.
         </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <div class="flex flex-col sm:flex-row gap-5 justify-center items-center">
           <a
-            class="w-full sm:w-auto bg-[var(--primary-color)] hover:bg-[var(--primary-hover)] px-8 py-3.5 rounded-xl text-base font-bold transition pulse flex items-center justify-center gap-2 shadow-lg"
+            class="w-full sm:w-auto bg-[var(--primary-color)] hover:bg-[var(--primary-hover)] px-8 py-4 rounded-xl text-lg font-bold transition pulse flex items-center justify-center gap-3 shadow-xl"
             href="#portafolio"
           >
-            <i class="fa-solid fa-images"></i>
+            <i class="fa-solid fa-images text-xl"></i>
             Ver Portafolio &amp; Galería
           </a>
           <a
-            class="w-full sm:w-auto bg-black/60 hover:bg-black/90 border border-[var(--primary-color)]/70 px-8 py-3.5 rounded-xl text-base font-bold transition text-gray-200 hover:text-white flex items-center justify-center gap-2"
+            class="w-full sm:w-auto bg-black/70 hover:bg-black/95 border-2 border-[var(--primary-color)]/70 px-8 py-4 rounded-xl text-lg font-bold transition text-gray-100 hover:text-white flex items-center justify-center gap-3"
             href="#contacto"
           >
-            <i class="fa-solid fa-paper-plane text-[var(--primary-color)]"></i>
+            <i class="fa-solid fa-paper-plane text-[var(--primary-color)] text-xl"></i>
             Contactar ahora
           </a>
         </div>
       </div>
     </section>
     <!-- SERVICIOS TÉCNICOS -->
-    <section class="py-24 relative bg-black/50" id="servicios">
-      <div class="max-w-6xl mx-auto px-6 relative">
-        <div class="text-center mb-14 fade-up">
-          <span class="text-[var(--primary-color)] text-xs font-bold tracking-widest uppercase mb-2 block">
+    <section class="py-24 relative bg-black/60" id="servicios">
+      <div class="max-w-7xl mx-auto px-6 md:px-8 relative">
+        <div class="text-center mb-16 fade-up">
+          <span class="text-[var(--primary-color)] text-sm md:text-base font-bold tracking-widest uppercase mb-2 block">
             Especialidades &amp; Diagnóstico
           </span>
-          <h3 class="text-3xl md:text-4xl font-extrabold text-white">
+          <h3 class="text-3xl md:text-5xl font-extrabold text-white">
             Servicios
             <span class="text-[var(--primary-color)]">Técnicos</span>
           </h3>
-          <div class="w-16 h-1 bg-[var(--primary-color)] mx-auto mt-4 rounded-full"></div>
+          <div class="w-20 h-1.5 bg-[var(--primary-color)] mx-auto mt-4 rounded-full"></div>
         </div>
-        <div class="grid md:grid-cols-4 sm:grid-cols-2 gap-6">
+        <div class="grid md:grid-cols-4 sm:grid-cols-2 gap-7">
           <!-- Servicio 1 -->
           <div
-            class="bg-[var(--dark-gray)]/90 backdrop-blur-sm p-6 rounded-2xl border border-gray-800 hover:border-[var(--primary-color)] transition-all fade-up text-center card-zoom group"
+            class="bg-[var(--dark-gray)]/95 backdrop-blur-sm p-7 rounded-2xl border border-gray-800 hover:border-[var(--primary-color)] transition-all fade-up text-center card-zoom group"
           >
             <div
-              class="w-16 h-16 mx-auto mb-5 rounded-xl bg-black/50 flex items-center justify-center text-[var(--primary-color)] text-3xl group-hover:scale-110 transition border border-gray-800 group-hover:border-[var(--primary-color)]"
+              class="w-20 h-20 mx-auto mb-6 rounded-2xl bg-black/60 flex items-center justify-center text-[var(--primary-color)] text-4xl group-hover:scale-110 transition border border-gray-800 group-hover:border-[var(--primary-color)]"
             >
               <i class="fa-solid fa-computer"></i>
             </div>
-            <h4 class="text-lg font-bold mb-2 text-white group-hover:text-[var(--primary-color)] transition">
+            <h4
+              class="text-xl md:text-2xl font-bold mb-3 text-white group-hover:text-[var(--primary-color)] transition"
+            >
               Soporte PC / Mac
             </h4>
-            <p class="text-gray-400 text-sm leading-relaxed">
+            <p class="text-gray-300 text-base leading-relaxed">
               Formateo profesional, optimización de sistema y mantenimiento preventivo/correctivo.
             </p>
           </div>
           <!-- Servicio 2 -->
           <div
-            class="bg-[var(--dark-gray)]/90 backdrop-blur-sm p-6 rounded-2xl border border-gray-800 hover:border-[var(--primary-color)] transition-all fade-up text-center card-zoom group"
+            class="bg-[var(--dark-gray)]/95 backdrop-blur-sm p-7 rounded-2xl border border-gray-800 hover:border-[var(--primary-color)] transition-all fade-up text-center card-zoom group"
           >
             <div
-              class="w-16 h-16 mx-auto mb-5 rounded-xl bg-black/50 flex items-center justify-center text-[var(--primary-color)] text-3xl group-hover:scale-110 transition border border-gray-800 group-hover:border-[var(--primary-color)]"
+              class="w-20 h-20 mx-auto mb-6 rounded-2xl bg-black/60 flex items-center justify-center text-[var(--primary-color)] text-4xl group-hover:scale-110 transition border border-gray-800 group-hover:border-[var(--primary-color)]"
             >
               <i class="fa-solid fa-video"></i>
             </div>
-            <h4 class="text-lg font-bold mb-2 text-white group-hover:text-[var(--primary-color)] transition">
+            <h4
+              class="text-xl md:text-2xl font-bold mb-3 text-white group-hover:text-[var(--primary-color)] transition"
+            >
               CCTV e Infraestructura
             </h4>
-            <p class="text-gray-400 text-sm leading-relaxed">
+            <p class="text-gray-300 text-base leading-relaxed">
               Instalación integral, cableado estructurado, presupuestos y configuración de cámaras.
             </p>
           </div>
           <!-- Servicio 3 -->
           <div
-            class="bg-[var(--dark-gray)]/90 backdrop-blur-sm p-6 rounded-2xl border border-gray-800 hover:border-[var(--primary-color)] transition-all fade-up text-center card-zoom group"
+            class="bg-[var(--dark-gray)]/95 backdrop-blur-sm p-7 rounded-2xl border border-gray-800 hover:border-[var(--primary-color)] transition-all fade-up text-center card-zoom group"
           >
             <div
-              class="w-16 h-16 mx-auto mb-5 rounded-xl bg-black/50 flex items-center justify-center text-[var(--primary-color)] text-3xl group-hover:scale-110 transition border border-gray-800 group-hover:border-[var(--primary-color)]"
+              class="w-20 h-20 mx-auto mb-6 rounded-2xl bg-black/60 flex items-center justify-center text-[var(--primary-color)] text-4xl group-hover:scale-110 transition border border-gray-800 group-hover:border-[var(--primary-color)]"
             >
               <i class="fa-solid fa-microchip"></i>
             </div>
-            <h4 class="text-lg font-bold mb-2 text-white group-hover:text-[var(--primary-color)] transition">
+            <h4
+              class="text-xl md:text-2xl font-bold mb-3 text-white group-hover:text-[var(--primary-color)] transition"
+            >
               Electrónica &amp; Software
             </h4>
-            <p class="text-gray-400 text-sm leading-relaxed">
+            <p class="text-gray-300 text-base leading-relaxed">
               Análisis de circuitos, diagnóstico por componentes y microelectrónica de precisión.
             </p>
           </div>
           <!-- Servicio 4 -->
           <div
-            class="bg-[var(--dark-gray)]/90 backdrop-blur-sm p-6 rounded-2xl border border-gray-800 hover:border-[var(--primary-color)] transition-all fade-up text-center card-zoom group"
+            class="bg-[var(--dark-gray)]/95 backdrop-blur-sm p-7 rounded-2xl border border-gray-800 hover:border-[var(--primary-color)] transition-all fade-up text-center card-zoom group"
           >
             <div
-              class="w-16 h-16 mx-auto mb-5 rounded-xl bg-black/50 flex items-center justify-center text-[var(--primary-color)] text-3xl group-hover:scale-110 transition border border-gray-800 group-hover:border-[var(--primary-color)]"
+              class="w-20 h-20 mx-auto mb-6 rounded-2xl bg-black/60 flex items-center justify-center text-[var(--primary-color)] text-4xl group-hover:scale-110 transition border border-gray-800 group-hover:border-[var(--primary-color)]"
             >
               <i class="fa-solid fa-gamepad"></i>
             </div>
-            <h4 class="text-lg font-bold mb-2 text-white group-hover:text-[var(--primary-color)] transition">
+            <h4
+              class="text-xl md:text-2xl font-bold mb-3 text-white group-hover:text-[var(--primary-color)] transition"
+            >
               Máquinas Arcade
             </h4>
-            <p class="text-gray-400 text-sm leading-relaxed">
+            <p class="text-gray-300 text-base leading-relaxed">
               Restauración de chasises, fuentes, calibración de pantallas y optimización de placas.
             </p>
           </div>
@@ -281,103 +295,111 @@
     </section>
     <!-- PORTAFOLIO CON GALERÍA INTERACTIVA -->
     <section class="py-24 relative bg-[var(--dark-color)] border-t border-b border-gray-900" id="portafolio">
-      <div class="max-w-6xl mx-auto px-6 relative z-10">
+      <div class="max-w-7xl mx-auto px-6 md:px-8 relative z-10">
         <!-- Encabezado de la sección -->
         <div class="text-center mb-16 fade-up">
           <div
-            class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[var(--primary-color)]/40 bg-[var(--primary-color)]/10 text-[var(--primary-color)] text-xs font-semibold uppercase tracking-wider mb-3"
+            class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[var(--primary-color)]/50 bg-[var(--primary-color)]/10 text-[var(--primary-color)] text-xs md:text-sm font-bold uppercase tracking-wider mb-4"
           >
             <i class="fa-solid fa-camera"></i>
             Galería Técnica &amp; Registro de Trabajos
           </div>
-          <h3 class="text-3xl md:text-4xl font-extrabold text-white">
+          <h3 class="text-3xl md:text-5xl font-extrabold text-white">
             Portafolio de
             <span class="text-[var(--primary-color)]">Trabajos Realizados</span>
           </h3>
-          <p class="text-gray-400 max-w-2xl mx-auto text-sm md:text-base mt-3">
+          <p class="text-gray-300 max-w-3xl mx-auto text-base md:text-xl mt-4 leading-relaxed">
             Selecciona cualquiera de las tarjetas a continuación para abrir la galería fotográfica interactiva de
             intervenciones, diagnósticos y puestas a punto.
           </p>
-          <div class="w-16 h-1 bg-[var(--primary-color)] mx-auto mt-4 rounded-full"></div>
+          <div class="w-20 h-1.5 bg-[var(--primary-color)] mx-auto mt-4 rounded-full"></div>
         </div>
         <!-- BLOQUE 1: PROYECTOS INTERNACIONALES -->
-        <div class="mb-16 fade-up">
-          <div class="flex items-center gap-3 mb-6 pb-3 border-b border-gray-800">
+        <div class="mb-20 fade-up">
+          <div class="flex items-center gap-4 mb-8 pb-4 border-b border-gray-800">
             <div
-              class="w-10 h-10 rounded-lg bg-[var(--primary-color)]/10 border border-[var(--primary-color)] flex items-center justify-center text-[var(--primary-color)]"
+              class="w-12 h-12 rounded-xl bg-[var(--primary-color)]/15 border-2 border-[var(--primary-color)] flex items-center justify-center text-[var(--primary-color)] text-xl"
             >
-              <i class="fa-solid fa-earth-americas text-lg"></i>
+              <i class="fa-solid fa-earth-americas"></i>
             </div>
             <div>
-              <h4 class="text-xl font-bold text-white flex items-center gap-2">
+              <h4 class="text-2xl md:text-3xl font-extrabold text-white flex items-center gap-3">
                 Proyectos Internacionales
-                <span class="text-xs bg-[var(--primary-color)] text-white px-2 py-0.5 rounded font-mono font-bold">
+                <span
+                  class="text-xs md:text-sm bg-[var(--primary-color)] text-white px-3 py-1 rounded-md font-mono font-bold tracking-wider"
+                >
                   2 PAÍSES
                 </span>
               </h4>
-              <p class="text-xs text-gray-400">Implementaciones y operaciones técnicas en el exterior</p>
+              <p class="text-sm md:text-base text-gray-400 mt-1">
+                Implementaciones y operaciones técnicas en el exterior
+              </p>
             </div>
           </div>
-          <div class="grid md:grid-cols-2 gap-6">
+          <div class="grid md:grid-cols-2 gap-8">
             <!-- Panamá: Game Time Inc. -->
             <div
-              class="portfolio-card cursor-pointer bg-[var(--card-bg)] p-6 md:p-7 rounded-2xl border border-gray-800 hover:border-[var(--primary-color)] shadow-lg hover:shadow-[0_0_24px_rgba(255,79,0,0.35)] transition-all card-zoom flex flex-col justify-between group"
+              class="portfolio-card cursor-pointer bg-[var(--card-bg)] p-7 md:p-9 rounded-2xl border-2 border-gray-800 hover:border-[var(--primary-color)] shadow-xl hover:shadow-[0_0_28px_rgba(255,79,0,0.35)] transition-all card-zoom flex flex-col justify-between group"
               data-project="gametime"
               onclick="openGallery('gametime')"
             >
               <div>
-                <div class="flex items-center justify-between mb-4">
+                <div class="flex items-center justify-between mb-5">
                   <span class="tech-tag">
                     <i class="fa-solid fa-location-dot"></i>
                     PANAMÁ CITY (PTY)
                   </span>
                   <span
-                    class="text-xs font-mono text-orange-400 bg-black/60 px-2.5 py-1 rounded border border-gray-800 flex items-center gap-1.5"
+                    class="text-xs md:text-sm font-mono text-orange-400 bg-black/75 px-3 py-1.5 rounded-lg border border-gray-800 flex items-center gap-2 font-semibold"
                   >
-                    <span class="w-2 h-2 rounded-full bg-[var(--primary-color)] animate-ping"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-[var(--primary-color)] animate-ping"></span>
                     Internacional
                   </span>
                 </div>
-                <div class="flex items-start gap-4 mb-4">
+                <div class="flex items-start gap-4 mb-5">
                   <div
-                    class="w-12 h-12 rounded-xl bg-black/70 border border-gray-800 flex-shrink-0 flex items-center justify-center text-[var(--primary-color)] text-xl group-hover:border-[var(--primary-color)] group-hover:scale-105 transition"
+                    class="w-14 h-14 rounded-2xl bg-black/80 border border-gray-800 flex-shrink-0 flex items-center justify-center text-[var(--primary-color)] text-2xl group-hover:border-[var(--primary-color)] group-hover:scale-105 transition"
                   >
                     <i class="fa-solid fa-gamepad"></i>
                   </div>
                   <div>
-                    <h5 class="text-2xl font-bold text-white group-hover:text-[var(--primary-color)] transition">
+                    <h5
+                      class="text-2xl md:text-3xl font-bold text-white group-hover:text-[var(--primary-color)] transition leading-tight"
+                    >
                       Game Time Inc.
                     </h5>
-                    <p class="text-xs text-gray-400 font-mono mt-0.5">Soporte Técnico Integral &amp; Arcade</p>
+                    <p class="text-sm md:text-base text-gray-300 font-mono mt-1">
+                      Soporte Técnico Integral &amp; Arcade
+                    </p>
                   </div>
                 </div>
-                <p class="text-gray-300 text-sm leading-relaxed mb-6">
+                <p class="text-gray-200 text-base md:text-lg leading-relaxed mb-6">
                   Soporte técnico integral, arquitectura de entretenimiento arcade y optimización de hardware para
                   centros de diversión y simulación.
                 </p>
-                <div class="flex flex-wrap gap-2 mb-6">
+                <div class="flex flex-wrap gap-2.5 mb-6">
                   <span
-                    class="bg-black/60 text-xs px-3 py-1.5 rounded-lg border border-gray-800 text-gray-300 flex items-center gap-1.5"
+                    class="bg-black/70 text-sm md:text-base px-3.5 py-1.5 rounded-lg border border-gray-800 text-gray-200 flex items-center gap-2 font-medium"
                   >
                     <i class="fa-solid fa-wrench text-[var(--primary-color)]"></i>
                     Mantenimiento Arcade
                   </span>
                   <span
-                    class="bg-black/60 text-xs px-3 py-1.5 rounded-lg border border-gray-800 text-gray-300 flex items-center gap-1.5"
+                    class="bg-black/70 text-sm md:text-base px-3.5 py-1.5 rounded-lg border border-gray-800 text-gray-200 flex items-center gap-2 font-medium"
                   >
                     <i class="fa-solid fa-network-wired text-[var(--primary-color)]"></i>
                     Redes &amp; Control
                   </span>
                 </div>
               </div>
-              <!-- Footer limpio y ordenado de la tarjeta -->
-              <div class="pt-4 border-t border-gray-800/80 flex items-center justify-between">
-                <span class="text-xs text-gray-400 font-mono flex items-center gap-1.5">
+              <!-- Footer de la tarjeta -->
+              <div class="pt-5 border-t border-gray-800 flex items-center justify-between">
+                <span class="text-sm md:text-base text-gray-300 font-mono flex items-center gap-2 font-medium">
                   <i class="fa-solid fa-images text-[var(--primary-color)]"></i>
                   6 Fotografías
                 </span>
                 <button
-                  class="inline-flex items-center gap-2 bg-[var(--primary-color)] hover:bg-[var(--primary-hover)] text-white text-xs font-bold px-4 py-2 rounded-lg transition shadow group-hover:shadow-[0_0_12px_var(--glow-color)]"
+                  class="inline-flex items-center gap-2 bg-[var(--primary-color)] hover:bg-[var(--primary-hover)] text-white text-sm md:text-base font-bold px-5 py-2.5 rounded-xl transition shadow group-hover:shadow-[0_0_15px_var(--glow-color)] cursor-pointer"
                   type="button"
                 >
                   <i class="fa-solid fa-camera"></i>
@@ -387,62 +409,94 @@
             </div>
             <!-- Chile: Epol Spa -->
             <div
-              class="portfolio-card cursor-pointer bg-[var(--card-bg)] p-6 md:p-7 rounded-2xl border border-gray-800 hover:border-[var(--primary-color)] shadow-lg hover:shadow-[0_0_24px_rgba(255,79,0,0.35)] transition-all card-zoom flex flex-col justify-between group"
+              class="portfolio-card cursor-pointer bg-[var(--card-bg)] p-7 md:p-9 rounded-2xl border-2 border-gray-800 hover:border-[var(--primary-color)] shadow-xl hover:shadow-[0_0_28px_rgba(255,79,0,0.35)] transition-all card-zoom flex flex-col justify-between group"
               data-project="epol"
               onclick="openGallery('epol')"
             >
               <div>
-                <div class="flex items-center justify-between mb-4">
+                <div class="flex items-center justify-between mb-5">
                   <span class="tech-tag">
                     <i class="fa-solid fa-location-dot"></i>
                     IQUIQUE, CHILE
                   </span>
                   <span
-                    class="text-xs font-mono text-orange-400 bg-black/60 px-2.5 py-1 rounded border border-gray-800 flex items-center gap-1.5"
+                    class="text-xs md:text-sm font-mono text-orange-400 bg-black/75 px-3 py-1.5 rounded-lg border border-gray-800 flex items-center gap-2 font-semibold"
                   >
-                    <span class="w-2 h-2 rounded-full bg-[var(--primary-color)] animate-ping"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-[var(--primary-color)] animate-ping"></span>
                     Internacional
                   </span>
                 </div>
                 <div class="flex items-start gap-4 mb-4">
                   <div
-                    class="w-12 h-12 rounded-xl bg-black/70 border border-gray-800 flex-shrink-0 flex items-center justify-center text-[var(--primary-color)] text-xl group-hover:border-[var(--primary-color)] group-hover:scale-105 transition"
+                    class="w-14 h-14 rounded-2xl bg-black/80 border border-gray-800 flex-shrink-0 flex items-center justify-center text-[var(--primary-color)] text-2xl group-hover:border-[var(--primary-color)] group-hover:scale-105 transition"
                   >
                     <i class="fa-solid fa-microchip"></i>
                   </div>
                   <div>
-                    <h5 class="text-2xl font-bold text-white group-hover:text-[var(--primary-color)] transition">
+                    <h5
+                      class="text-2xl md:text-3xl font-bold text-white group-hover:text-[var(--primary-color)] transition leading-tight"
+                    >
                       Epol Spa
                     </h5>
-                    <p class="text-xs text-gray-400 font-mono mt-0.5">Gestión Técnica Especializada</p>
+                    <p class="text-sm md:text-base text-gray-300 font-mono mt-1">
+                      Supervisor Área de Desarrollo Tecnológico y Soporte IT
+                    </p>
                   </div>
                 </div>
-                <p class="text-gray-300 text-sm leading-relaxed mb-6">
-                  Gestión técnica especializada, diagnóstico electrónico y soporte de sistemas operacionales de alta
-                  demanda.
-                </p>
-                <div class="flex flex-wrap gap-2 mb-6">
+                <!-- Bloque Proyecto Destacado Copiloto Virtual -->
+                <div class="mb-5 p-4 rounded-xl bg-black/70 border border-[var(--primary-color)]/40">
+                  <div class="flex items-center justify-between mb-1.5">
+                    <span
+                      class="text-xs md:text-sm font-bold uppercase tracking-wider text-[var(--primary-color)] flex items-center gap-2"
+                    >
+                      <i class="fa-solid fa-satellite-dish"></i>
+                      Proyecto Destacado
+                    </span>
+                    <a
+                      class="text-xs md:text-sm font-mono text-orange-300 hover:text-white underline underline-offset-2 flex items-center gap-1 transition"
+                      href="http://www.copilotovirtual.cl"
+                      onclick="event.stopPropagation()"
+                      rel="noopener noreferrer"
+                      target="_blank"
+                    >
+                      www.copilotovirtual.cl
+                      <i class="fa-solid fa-arrow-up-right-from-square text-[11px]"></i>
+                    </a>
+                  </div>
+                  <h6 class="text-base md:text-lg font-bold text-white mb-2">Copiloto Virtual</h6>
+                  <p class="text-gray-300 text-sm md:text-base leading-relaxed">
+                    Líder técnico en el diseño, programación y despliegue de una solución integral de hardware y
+                    software enfocada en seguridad vial y telemetría avanzada.
+                  </p>
+                </div>
+                <div class="flex flex-wrap gap-2.5 mb-6">
                   <span
-                    class="bg-black/60 text-xs px-3 py-1.5 rounded-lg border border-gray-800 text-gray-300 flex items-center gap-1.5"
+                    class="bg-black/70 text-sm md:text-base px-3.5 py-1.5 rounded-lg border border-gray-800 text-gray-200 flex items-center gap-2 font-medium"
                   >
                     <i class="fa-solid fa-bolt text-[var(--primary-color)]"></i>
                     Electrónica Aplicada
                   </span>
                   <span
-                    class="bg-black/60 text-xs px-3 py-1.5 rounded-lg border border-gray-800 text-gray-300 flex items-center gap-1.5"
+                    class="bg-black/70 text-sm md:text-base px-3.5 py-1.5 rounded-lg border border-gray-800 text-gray-200 flex items-center gap-2 font-medium"
                   >
                     <i class="fa-solid fa-satellite text-[var(--primary-color)]"></i>
                     Telemetría &amp; IT
                   </span>
+                  <span
+                    class="bg-black/70 text-sm md:text-base px-3.5 py-1.5 rounded-lg border border-gray-800 text-gray-200 flex items-center gap-2 font-medium"
+                  >
+                    <i class="fa-solid fa-shield-halved text-[var(--primary-color)]"></i>
+                    Seguridad Vial
+                  </span>
                 </div>
               </div>
-              <div class="pt-4 border-t border-gray-800/80 flex items-center justify-between">
-                <span class="text-xs text-gray-400 font-mono flex items-center gap-1.5">
+              <div class="pt-5 border-t border-gray-800 flex items-center justify-between">
+                <span class="text-sm md:text-base text-gray-300 font-mono flex items-center gap-2 font-medium">
                   <i class="fa-solid fa-images text-[var(--primary-color)]"></i>
                   5 Fotografías
                 </span>
                 <button
-                  class="inline-flex items-center gap-2 bg-[var(--primary-color)] hover:bg-[var(--primary-hover)] text-white text-xs font-bold px-4 py-2 rounded-lg transition shadow group-hover:shadow-[0_0_12px_var(--glow-color)]"
+                  class="inline-flex items-center gap-2 bg-[var(--primary-color)] hover:bg-[var(--primary-hover)] text-white text-sm md:text-base font-bold px-5 py-2.5 rounded-xl transition shadow group-hover:shadow-[0_0_15px_var(--glow-color)] cursor-pointer"
                   type="button"
                 >
                   <i class="fa-solid fa-camera"></i>
@@ -452,294 +506,428 @@
             </div>
           </div>
         </div>
-        <!-- BLOQUE 2: PROYECTOS NACIONALES -->
+        <!-- BLOQUE 2: PROYECTOS NACIONALES CON EL MISMO ESTÁNDAR Y ESTILO QUE INTERNACIONALES -->
         <div class="fade-up">
-          <div class="flex items-center gap-3 mb-6 pb-3 border-b border-gray-800">
+          <div class="flex items-center gap-4 mb-8 pb-4 border-b border-gray-800">
             <div
-              class="w-10 h-10 rounded-lg bg-[var(--primary-color)]/10 border border-[var(--primary-color)] flex items-center justify-center text-[var(--primary-color)]"
+              class="w-12 h-12 rounded-xl bg-[var(--primary-color)]/15 border-2 border-[var(--primary-color)] flex items-center justify-center text-[var(--primary-color)] text-xl"
             >
-              <i class="fa-solid fa-map-location-dot text-lg"></i>
+              <i class="fa-solid fa-map-location-dot"></i>
             </div>
             <div>
-              <h4 class="text-xl font-bold text-white flex items-center gap-2">
+              <h4 class="text-2xl md:text-3xl font-extrabold text-white flex items-center gap-3">
                 Proyectos Nacionales
-                <span class="text-xs bg-gray-800 text-gray-300 px-2.5 py-0.5 rounded font-mono border border-gray-700">
+                <span
+                  class="text-xs md:text-sm bg-[var(--primary-color)] text-white px-3 py-1 rounded-md font-mono font-bold tracking-wider"
+                >
                   6 SEDES
                 </span>
               </h4>
-              <p class="text-xs text-gray-400">Cobertura técnica en las principales ciudades del país</p>
+              <p class="text-sm md:text-base text-gray-400 mt-1">
+                Cobertura técnica en las principales ciudades del país
+              </p>
             </div>
           </div>
-          <!-- Grid Nacional de 6 Sedes -->
-          <div class="grid md:grid-cols-3 sm:grid-cols-2 gap-5">
+          <!-- Grid Nacional de 6 Sedes con estilo premium equiparado -->
+          <div class="grid lg:grid-cols-3 md:grid-cols-2 gap-7">
             <!-- Maracaibo -->
             <div
-              class="portfolio-card cursor-pointer bg-[var(--dark-gray)]/90 p-5 rounded-xl border border-gray-800 hover:border-[var(--primary-color)] transition-all card-zoom flex flex-col justify-between group"
+              class="portfolio-card cursor-pointer bg-[var(--card-bg)] p-7 rounded-2xl border-2 border-gray-800 hover:border-[var(--primary-color)] shadow-xl hover:shadow-[0_0_26px_rgba(255,79,0,0.35)] transition-all card-zoom flex flex-col justify-between group"
               data-project="videomania-maracaibo"
               onclick="openGallery('videomania-maracaibo')"
             >
               <div>
-                <div class="flex items-center justify-between mb-3">
-                  <span class="text-xs font-semibold text-[var(--primary-color)] flex items-center gap-1.5">
+                <div class="flex items-center justify-between mb-4">
+                  <span class="tech-tag">
                     <i class="fa-solid fa-location-dot"></i>
-                    Maracaibo
+                    MARACAIBO (ZULIA)
                   </span>
                   <span
-                    class="text-[10px] text-gray-400 font-mono bg-black/60 px-2 py-0.5 rounded border border-gray-800"
+                    class="text-xs md:text-sm font-mono text-gray-300 bg-black/70 px-2.5 py-1 rounded-lg border border-gray-800 flex items-center gap-1.5 font-semibold"
                   >
+                    <span class="w-2 h-2 rounded-full bg-[var(--primary-color)]"></span>
                     Sede Zulia
                   </span>
                 </div>
-                <div class="flex items-center gap-2.5 mb-2">
+                <div class="flex items-start gap-4 mb-4">
                   <div
-                    class="w-8 h-8 rounded-lg bg-black/60 border border-gray-800 flex items-center justify-center text-[var(--primary-color)] text-sm group-hover:border-[var(--primary-color)] transition"
+                    class="w-12 h-12 rounded-xl bg-black/80 border border-gray-800 flex-shrink-0 flex items-center justify-center text-[var(--primary-color)] text-xl group-hover:border-[var(--primary-color)] group-hover:scale-105 transition"
                   >
                     <i class="fa-solid fa-gamepad"></i>
                   </div>
-                  <h5 class="text-base font-bold text-white group-hover:text-[var(--primary-color)] transition">
-                    Super videomania C.A
-                  </h5>
+                  <div>
+                    <h5
+                      class="text-xl md:text-2xl font-bold text-white group-hover:text-[var(--primary-color)] transition leading-tight"
+                    >
+                      Super videomania C.A
+                    </h5>
+                    <p class="text-xs md:text-sm text-gray-400 font-mono mt-0.5">Mantenimiento de Sala &amp; Arcade</p>
+                  </div>
                 </div>
-                <p class="text-gray-400 text-xs leading-relaxed mb-4">
-                  Mantenimiento preventivo de máquinas recreativas, diagnóstico de fuentes conmutadas y placas base.
+                <p class="text-gray-300 text-sm md:text-base leading-relaxed mb-5">
+                  Mantenimiento preventivo integral de máquinas recreativas, diagnóstico de fuentes conmutadas y placas
+                  base.
                 </p>
+                <div class="flex flex-wrap gap-2 mb-5">
+                  <span
+                    class="bg-black/70 text-xs md:text-sm px-2.5 py-1 rounded-lg border border-gray-800 text-gray-300 flex items-center gap-1.5"
+                  >
+                    <i class="fa-solid fa-bolt text-[var(--primary-color)]"></i>
+                    Fuentes de Poder
+                  </span>
+                  <span
+                    class="bg-black/70 text-xs md:text-sm px-2.5 py-1 rounded-lg border border-gray-800 text-gray-300 flex items-center gap-1.5"
+                  >
+                    <i class="fa-solid fa-microchip text-[var(--primary-color)]"></i>
+                    Placas JAMMA
+                  </span>
+                </div>
               </div>
-              <div class="pt-3 border-t border-gray-800/80 flex items-center justify-between text-[11px]">
-                <span class="text-gray-400 font-mono">
-                  <i class="fa-solid fa-camera text-[var(--primary-color)] mr-1"></i>
-                  5 Fotos
+              <div class="pt-4 border-t border-gray-800 flex items-center justify-between">
+                <span class="text-xs md:text-sm text-gray-300 font-mono flex items-center gap-1.5">
+                  <i class="fa-solid fa-images text-[var(--primary-color)]"></i>
+                  5 Fotografías
                 </span>
-                <span
-                  class="text-[var(--primary-color)] font-semibold flex items-center gap-1 group-hover:translate-x-1 transition"
+                <button
+                  class="inline-flex items-center gap-2 bg-[var(--primary-color)] hover:bg-[var(--primary-hover)] text-white text-xs md:text-sm font-bold px-4 py-2 rounded-lg transition shadow group-hover:shadow-[0_0_12px_var(--glow-color)] cursor-pointer"
+                  type="button"
                 >
-                  Ver galería
-                  <i class="fa-solid fa-arrow-right text-[10px]"></i>
-                </span>
+                  <i class="fa-solid fa-camera"></i>
+                  Ver Galería
+                </button>
               </div>
             </div>
             <!-- Caracas -->
             <div
-              class="portfolio-card cursor-pointer bg-[var(--dark-gray)]/90 p-5 rounded-xl border border-gray-800 hover:border-[var(--primary-color)] transition-all card-zoom flex flex-col justify-between group"
+              class="portfolio-card cursor-pointer bg-[var(--card-bg)] p-7 rounded-2xl border-2 border-gray-800 hover:border-[var(--primary-color)] shadow-xl hover:shadow-[0_0_26px_rgba(255,79,0,0.35)] transition-all card-zoom flex flex-col justify-between group"
               data-project="videomania-caracas"
               onclick="openGallery('videomania-caracas')"
             >
               <div>
-                <div class="flex items-center justify-between mb-3">
-                  <span class="text-xs font-semibold text-[var(--primary-color)] flex items-center gap-1.5">
+                <div class="flex items-center justify-between mb-4">
+                  <span class="tech-tag">
                     <i class="fa-solid fa-location-dot"></i>
-                    Caracas
+                    CARACAS (DTO. CAPITAL)
                   </span>
                   <span
-                    class="text-[10px] text-gray-400 font-mono bg-black/60 px-2 py-0.5 rounded border border-gray-800"
+                    class="text-xs md:text-sm font-mono text-gray-300 bg-black/70 px-2.5 py-1 rounded-lg border border-gray-800 flex items-center gap-1.5 font-semibold"
                   >
-                    Distrito Capital
+                    <span class="w-2 h-2 rounded-full bg-[var(--primary-color)]"></span>
+                    Sede Central
                   </span>
                 </div>
-                <div class="flex items-center gap-2.5 mb-2">
+                <div class="flex items-start gap-4 mb-4">
                   <div
-                    class="w-8 h-8 rounded-lg bg-black/60 border border-gray-800 flex items-center justify-center text-[var(--primary-color)] text-sm group-hover:border-[var(--primary-color)] transition"
+                    class="w-12 h-12 rounded-xl bg-black/80 border border-gray-800 flex-shrink-0 flex items-center justify-center text-[var(--primary-color)] text-xl group-hover:border-[var(--primary-color)] group-hover:scale-105 transition"
                   >
                     <i class="fa-solid fa-bolt"></i>
                   </div>
-                  <h5 class="text-base font-bold text-white group-hover:text-[var(--primary-color)] transition">
-                    Super videomania C.A
-                  </h5>
+                  <div>
+                    <h5
+                      class="text-xl md:text-2xl font-bold text-white group-hover:text-[var(--primary-color)] transition leading-tight"
+                    >
+                      Super videomania C.A
+                    </h5>
+                    <p class="text-xs md:text-sm text-gray-400 font-mono mt-0.5">Sistemas &amp; Electromecánica</p>
+                  </div>
                 </div>
-                <p class="text-gray-400 text-xs leading-relaxed mb-4">
-                  Soporte continuo a infraestructura técnica de sala, simulación y sistemas electromecánicos.
+                <p class="text-gray-300 text-sm md:text-base leading-relaxed mb-5">
+                  Soporte continuo a infraestructura técnica de sala, simuladores interactivos y sistemas
+                  electromecánicos.
                 </p>
+                <div class="flex flex-wrap gap-2 mb-5">
+                  <span
+                    class="bg-black/70 text-xs md:text-sm px-2.5 py-1 rounded-lg border border-gray-800 text-gray-300 flex items-center gap-1.5"
+                  >
+                    <i class="fa-solid fa-crosshairs text-[var(--primary-color)]"></i>
+                    Simuladores de Tiro
+                  </span>
+                  <span
+                    class="bg-black/70 text-xs md:text-sm px-2.5 py-1 rounded-lg border border-gray-800 text-gray-300 flex items-center gap-1.5"
+                  >
+                    <i class="fa-solid fa-gears text-[var(--primary-color)]"></i>
+                    Motores &amp; Sensores
+                  </span>
+                </div>
               </div>
-              <div class="pt-3 border-t border-gray-800/80 flex items-center justify-between text-[11px]">
-                <span class="text-gray-400 font-mono">
-                  <i class="fa-solid fa-camera text-[var(--primary-color)] mr-1"></i>
-                  5 Fotos
+              <div class="pt-4 border-t border-gray-800 flex items-center justify-between">
+                <span class="text-xs md:text-sm text-gray-300 font-mono flex items-center gap-1.5">
+                  <i class="fa-solid fa-images text-[var(--primary-color)]"></i>
+                  5 Fotografías
                 </span>
-                <span
-                  class="text-[var(--primary-color)] font-semibold flex items-center gap-1 group-hover:translate-x-1 transition"
+                <button
+                  class="inline-flex items-center gap-2 bg-[var(--primary-color)] hover:bg-[var(--primary-hover)] text-white text-xs md:text-sm font-bold px-4 py-2 rounded-lg transition shadow group-hover:shadow-[0_0_12px_var(--glow-color)] cursor-pointer"
+                  type="button"
                 >
-                  Ver galería
-                  <i class="fa-solid fa-arrow-right text-[10px]"></i>
-                </span>
+                  <i class="fa-solid fa-camera"></i>
+                  Ver Galería
+                </button>
               </div>
             </div>
             <!-- Valencia -->
             <div
-              class="portfolio-card cursor-pointer bg-[var(--dark-gray)]/90 p-5 rounded-xl border border-gray-800 hover:border-[var(--primary-color)] transition-all card-zoom flex flex-col justify-between group"
+              class="portfolio-card cursor-pointer bg-[var(--card-bg)] p-7 rounded-2xl border-2 border-gray-800 hover:border-[var(--primary-color)] shadow-xl hover:shadow-[0_0_26px_rgba(255,79,0,0.35)] transition-all card-zoom flex flex-col justify-between group"
               data-project="videomania-valencia"
               onclick="openGallery('videomania-valencia')"
             >
               <div>
-                <div class="flex items-center justify-between mb-3">
-                  <span class="text-xs font-semibold text-[var(--primary-color)] flex items-center gap-1.5">
+                <div class="flex items-center justify-between mb-4">
+                  <span class="tech-tag">
                     <i class="fa-solid fa-location-dot"></i>
-                    Valencia
+                    VALENCIA (CARABOBO)
                   </span>
                   <span
-                    class="text-[10px] text-gray-400 font-mono bg-black/60 px-2 py-0.5 rounded border border-gray-800"
+                    class="text-xs md:text-sm font-mono text-gray-300 bg-black/70 px-2.5 py-1 rounded-lg border border-gray-800 flex items-center gap-1.5 font-semibold"
                   >
-                    Carabobo
+                    <span class="w-2 h-2 rounded-full bg-[var(--primary-color)]"></span>
+                    Sede Carabobo
                   </span>
                 </div>
-                <div class="flex items-center gap-2.5 mb-2">
+                <div class="flex items-start gap-4 mb-4">
                   <div
-                    class="w-8 h-8 rounded-lg bg-black/60 border border-gray-800 flex items-center justify-center text-[var(--primary-color)] text-sm group-hover:border-[var(--primary-color)] transition"
+                    class="w-12 h-12 rounded-xl bg-black/80 border border-gray-800 flex-shrink-0 flex items-center justify-center text-[var(--primary-color)] text-xl group-hover:border-[var(--primary-color)] group-hover:scale-105 transition"
                   >
                     <i class="fa-solid fa-tv"></i>
                   </div>
-                  <h5 class="text-base font-bold text-white group-hover:text-[var(--primary-color)] transition">
-                    Super videomania C.A
-                  </h5>
+                  <div>
+                    <h5
+                      class="text-xl md:text-2xl font-bold text-white group-hover:text-[var(--primary-color)] transition leading-tight"
+                    >
+                      Super videomania C.A
+                    </h5>
+                    <p class="text-xs md:text-sm text-gray-400 font-mono mt-0.5">Calibración &amp; Monitores CRT</p>
+                  </div>
                 </div>
-                <p class="text-gray-400 text-xs leading-relaxed mb-4">
-                  Calibración de monitores CRT/LCD, recableado de arneses JAMMA y ajustes de audio y control.
+                <p class="text-gray-300 text-sm md:text-base leading-relaxed mb-5">
+                  Calibración de monitores CRT/LCD, recableado de arneses JAMMA y ajustes finos de audio y control.
                 </p>
+                <div class="flex flex-wrap gap-2 mb-5">
+                  <span
+                    class="bg-black/70 text-xs md:text-sm px-2.5 py-1 rounded-lg border border-gray-800 text-gray-300 flex items-center gap-1.5"
+                  >
+                    <i class="fa-solid fa-display text-[var(--primary-color)]"></i>
+                    Monitores CRT 29"
+                  </span>
+                  <span
+                    class="bg-black/70 text-xs md:text-sm px-2.5 py-1 rounded-lg border border-gray-800 text-gray-300 flex items-center gap-1.5"
+                  >
+                    <i class="fa-solid fa-sliders text-[var(--primary-color)]"></i>
+                    Convergencia &amp; Geometría
+                  </span>
+                </div>
               </div>
-              <div class="pt-3 border-t border-gray-800/80 flex items-center justify-between text-[11px]">
-                <span class="text-gray-400 font-mono">
-                  <i class="fa-solid fa-camera text-[var(--primary-color)] mr-1"></i>
-                  5 Fotos
+              <div class="pt-4 border-t border-gray-800 flex items-center justify-between">
+                <span class="text-xs md:text-sm text-gray-300 font-mono flex items-center gap-1.5">
+                  <i class="fa-solid fa-images text-[var(--primary-color)]"></i>
+                  5 Fotografías
                 </span>
-                <span
-                  class="text-[var(--primary-color)] font-semibold flex items-center gap-1 group-hover:translate-x-1 transition"
+                <button
+                  class="inline-flex items-center gap-2 bg-[var(--primary-color)] hover:bg-[var(--primary-hover)] text-white text-xs md:text-sm font-bold px-4 py-2 rounded-lg transition shadow group-hover:shadow-[0_0_12px_var(--glow-color)] cursor-pointer"
+                  type="button"
                 >
-                  Ver galería
-                  <i class="fa-solid fa-arrow-right text-[10px]"></i>
-                </span>
+                  <i class="fa-solid fa-camera"></i>
+                  Ver Galería
+                </button>
               </div>
             </div>
             <!-- Barquisimeto -->
             <div
-              class="portfolio-card cursor-pointer bg-[var(--dark-gray)]/90 p-5 rounded-xl border border-gray-800 hover:border-[var(--primary-color)] transition-all card-zoom flex flex-col justify-between group"
+              class="portfolio-card cursor-pointer bg-[var(--card-bg)] p-7 rounded-2xl border-2 border-gray-800 hover:border-[var(--primary-color)] shadow-xl hover:shadow-[0_0_26px_rgba(255,79,0,0.35)] transition-all card-zoom flex flex-col justify-between group"
               data-project="megajuegos-barquisimeto"
               onclick="openGallery('megajuegos-barquisimeto')"
             >
               <div>
-                <div class="flex items-center justify-between mb-3">
-                  <span class="text-xs font-semibold text-[var(--primary-color)] flex items-center gap-1.5">
+                <div class="flex items-center justify-between mb-4">
+                  <span class="tech-tag">
                     <i class="fa-solid fa-location-dot"></i>
-                    Barquisimeto
+                    BARQUISIMETO (LARA)
                   </span>
                   <span
-                    class="text-[10px] text-gray-400 font-mono bg-black/60 px-2 py-0.5 rounded border border-gray-800"
+                    class="text-xs md:text-sm font-mono text-gray-300 bg-black/70 px-2.5 py-1 rounded-lg border border-gray-800 flex items-center gap-1.5 font-semibold"
                   >
-                    Lara
+                    <span class="w-2 h-2 rounded-full bg-[var(--primary-color)]"></span>
+                    Sede Lara
                   </span>
                 </div>
-                <div class="flex items-center gap-2.5 mb-2">
+                <div class="flex items-start gap-4 mb-4">
                   <div
-                    class="w-8 h-8 rounded-lg bg-black/60 border border-gray-800 flex items-center justify-center text-[var(--primary-color)] text-sm group-hover:border-[var(--primary-color)] transition"
+                    class="w-12 h-12 rounded-xl bg-black/80 border border-gray-800 flex-shrink-0 flex items-center justify-center text-[var(--primary-color)] text-xl group-hover:border-[var(--primary-color)] group-hover:scale-105 transition"
                   >
                     <i class="fa-solid fa-coins"></i>
                   </div>
-                  <h5 class="text-base font-bold text-white group-hover:text-[var(--primary-color)] transition">
-                    Mega Juegos C.A
-                  </h5>
+                  <div>
+                    <h5
+                      class="text-xl md:text-2xl font-bold text-white group-hover:text-[var(--primary-color)] transition leading-tight"
+                    >
+                      Mega Juegos C.A
+                    </h5>
+                    <p class="text-xs md:text-sm text-gray-400 font-mono mt-0.5">Sistemas de Monedas &amp; Hardware</p>
+                  </div>
                 </div>
-                <p class="text-gray-400 text-xs leading-relaxed mb-4">
-                  Reparación de hardware arcade, integración de sistemas de monedas e inspección técnica de líneas.
+                <p class="text-gray-300 text-sm md:text-base leading-relaxed mb-5">
+                  Reparación de hardware arcade, integración de sistemas de monedas e inspección técnica de líneas de
+                  energía.
                 </p>
+                <div class="flex flex-wrap gap-2 mb-5">
+                  <span
+                    class="bg-black/70 text-xs md:text-sm px-2.5 py-1 rounded-lg border border-gray-800 text-gray-300 flex items-center gap-1.5"
+                  >
+                    <i class="fa-solid fa-money-bill-wave text-[var(--primary-color)]"></i>
+                    Billeteros Digitales
+                  </span>
+                  <span
+                    class="bg-black/70 text-xs md:text-sm px-2.5 py-1 rounded-lg border border-gray-800 text-gray-300 flex items-center gap-1.5"
+                  >
+                    <i class="fa-solid fa-shield text-[var(--primary-color)]"></i>
+                    Protección Eléctrica
+                  </span>
+                </div>
               </div>
-              <div class="pt-3 border-t border-gray-800/80 flex items-center justify-between text-[11px]">
-                <span class="text-gray-400 font-mono">
-                  <i class="fa-solid fa-camera text-[var(--primary-color)] mr-1"></i>
-                  5 Fotos
+              <div class="pt-4 border-t border-gray-800 flex items-center justify-between">
+                <span class="text-xs md:text-sm text-gray-300 font-mono flex items-center gap-1.5">
+                  <i class="fa-solid fa-images text-[var(--primary-color)]"></i>
+                  5 Fotografías
                 </span>
-                <span
-                  class="text-[var(--primary-color)] font-semibold flex items-center gap-1 group-hover:translate-x-1 transition"
+                <button
+                  class="inline-flex items-center gap-2 bg-[var(--primary-color)] hover:bg-[var(--primary-hover)] text-white text-xs md:text-sm font-bold px-4 py-2 rounded-lg transition shadow group-hover:shadow-[0_0_12px_var(--glow-color)] cursor-pointer"
+                  type="button"
                 >
-                  Ver galería
-                  <i class="fa-solid fa-arrow-right text-[10px]"></i>
-                </span>
+                  <i class="fa-solid fa-camera"></i>
+                  Ver Galería
+                </button>
               </div>
             </div>
             <!-- Maracay -->
             <div
-              class="portfolio-card cursor-pointer bg-[var(--dark-gray)]/90 p-5 rounded-xl border border-gray-800 hover:border-[var(--primary-color)] transition-all card-zoom flex flex-col justify-between group"
+              class="portfolio-card cursor-pointer bg-[var(--card-bg)] p-7 rounded-2xl border-2 border-gray-800 hover:border-[var(--primary-color)] shadow-xl hover:shadow-[0_0_26px_rgba(255,79,0,0.35)] transition-all card-zoom flex flex-col justify-between group"
               data-project="megajuegos-maracay"
               onclick="openGallery('megajuegos-maracay')"
             >
               <div>
-                <div class="flex items-center justify-between mb-3">
-                  <span class="text-xs font-semibold text-[var(--primary-color)] flex items-center gap-1.5">
+                <div class="flex items-center justify-between mb-4">
+                  <span class="tech-tag">
                     <i class="fa-solid fa-location-dot"></i>
-                    Maracay
+                    MARACAY (ARAGUA)
                   </span>
                   <span
-                    class="text-[10px] text-gray-400 font-mono bg-black/60 px-2 py-0.5 rounded border border-gray-800"
+                    class="text-xs md:text-sm font-mono text-gray-300 bg-black/70 px-2.5 py-1 rounded-lg border border-gray-800 flex items-center gap-1.5 font-semibold"
                   >
-                    Aragua
+                    <span class="w-2 h-2 rounded-full bg-[var(--primary-color)]"></span>
+                    Sede Aragua
                   </span>
                 </div>
-                <div class="flex items-center gap-2.5 mb-2">
+                <div class="flex items-start gap-4 mb-4">
                   <div
-                    class="w-8 h-8 rounded-lg bg-black/60 border border-gray-800 flex items-center justify-center text-[var(--primary-color)] text-sm group-hover:border-[var(--primary-color)] transition"
+                    class="w-12 h-12 rounded-xl bg-black/80 border border-gray-800 flex-shrink-0 flex items-center justify-center text-[var(--primary-color)] text-xl group-hover:border-[var(--primary-color)] group-hover:scale-105 transition"
                   >
                     <i class="fa-solid fa-car"></i>
                   </div>
-                  <h5 class="text-base font-bold text-white group-hover:text-[var(--primary-color)] transition">
-                    Mega Juegos C.A
-                  </h5>
+                  <div>
+                    <h5
+                      class="text-xl md:text-2xl font-bold text-white group-hover:text-[var(--primary-color)] transition leading-tight"
+                    >
+                      Mega Juegos C.A
+                    </h5>
+                    <p class="text-xs md:text-sm text-gray-400 font-mono mt-0.5">Simulación &amp; Redemption</p>
+                  </div>
                 </div>
-                <p class="text-gray-400 text-xs leading-relaxed mb-4">
-                  Acondicionamiento y servicio correctivo de máquinas de destreza, Simuladores de carrera y Rendemption.
+                <p class="text-gray-300 text-sm md:text-base leading-relaxed mb-5">
+                  Acondicionamiento y servicio correctivo de máquinas de destreza, simuladores de carrera y redemption.
                 </p>
+                <div class="flex flex-wrap gap-2 mb-5">
+                  <span
+                    class="bg-black/70 text-xs md:text-sm px-2.5 py-1 rounded-lg border border-gray-800 text-gray-300 flex items-center gap-1.5"
+                  >
+                    <i class="fa-solid fa-ticket text-[var(--primary-color)]"></i>
+                    Dispensadores Tickets
+                  </span>
+                  <span
+                    class="bg-black/70 text-xs md:text-sm px-2.5 py-1 rounded-lg border border-gray-800 text-gray-300 flex items-center gap-1.5"
+                  >
+                    <i class="fa-solid fa-microchip text-[var(--primary-color)]"></i>
+                    Servomotores
+                  </span>
+                </div>
               </div>
-              <div class="pt-3 border-t border-gray-800/80 flex items-center justify-between text-[11px]">
-                <span class="text-gray-400 font-mono">
-                  <i class="fa-solid fa-camera text-[var(--primary-color)] mr-1"></i>
-                  5 Fotos
+              <div class="pt-4 border-t border-gray-800 flex items-center justify-between">
+                <span class="text-xs md:text-sm text-gray-300 font-mono flex items-center gap-1.5">
+                  <i class="fa-solid fa-images text-[var(--primary-color)]"></i>
+                  5 Fotografías
                 </span>
-                <span
-                  class="text-[var(--primary-color)] font-semibold flex items-center gap-1 group-hover:translate-x-1 transition"
+                <button
+                  class="inline-flex items-center gap-2 bg-[var(--primary-color)] hover:bg-[var(--primary-hover)] text-white text-xs md:text-sm font-bold px-4 py-2 rounded-lg transition shadow group-hover:shadow-[0_0_12px_var(--glow-color)] cursor-pointer"
+                  type="button"
                 >
-                  Ver galería
-                  <i class="fa-solid fa-arrow-right text-[10px]"></i>
-                </span>
+                  <i class="fa-solid fa-camera"></i>
+                  Ver Galería
+                </button>
               </div>
             </div>
             <!-- Barinas -->
             <div
-              class="portfolio-card cursor-pointer bg-[var(--dark-gray)]/90 p-5 rounded-xl border border-gray-800 hover:border-[var(--primary-color)] transition-all card-zoom flex flex-col justify-between group"
+              class="portfolio-card cursor-pointer bg-[var(--card-bg)] p-7 rounded-2xl border-2 border-gray-800 hover:border-[var(--primary-color)] shadow-xl hover:shadow-[0_0_26px_rgba(255,79,0,0.35)] transition-all card-zoom flex flex-col justify-between group"
               data-project="megajuegos-barinas"
               onclick="openGallery('megajuegos-barinas')"
             >
               <div>
-                <div class="flex items-center justify-between mb-3">
-                  <span class="text-xs font-semibold text-[var(--primary-color)] flex items-center gap-1.5">
+                <div class="flex items-center justify-between mb-4">
+                  <span class="tech-tag">
                     <i class="fa-solid fa-location-dot"></i>
-                    Barinas
+                    BARINAS (BARINAS)
                   </span>
                   <span
-                    class="text-[10px] text-gray-400 font-mono bg-black/60 px-2 py-0.5 rounded border border-gray-800"
+                    class="text-xs md:text-sm font-mono text-gray-300 bg-black/70 px-2.5 py-1 rounded-lg border border-gray-800 flex items-center gap-1.5 font-semibold"
                   >
-                    Barinas
+                    <span class="w-2 h-2 rounded-full bg-[var(--primary-color)]"></span>
+                    Sede Barinas
                   </span>
                 </div>
-                <div class="flex items-center gap-2.5 mb-2">
+                <div class="flex items-start gap-4 mb-4">
                   <div
-                    class="w-8 h-8 rounded-lg bg-black/60 border border-gray-800 flex items-center justify-center text-[var(--primary-color)] text-sm group-hover:border-[var(--primary-color)] transition"
+                    class="w-12 h-12 rounded-xl bg-black/80 border border-gray-800 flex-shrink-0 flex items-center justify-center text-[var(--primary-color)] text-xl group-hover:border-[var(--primary-color)] group-hover:scale-105 transition"
                   >
                     <i class="fa-solid fa-shield-halved"></i>
                   </div>
-                  <h5 class="text-base font-bold text-white group-hover:text-[var(--primary-color)] transition">
-                    Mega Juegos C.A
-                  </h5>
+                  <div>
+                    <h5
+                      class="text-xl md:text-2xl font-bold text-white group-hover:text-[var(--primary-color)] transition leading-tight"
+                    >
+                      Mega Juegos C.A
+                    </h5>
+                    <p class="text-xs md:text-sm text-gray-400 font-mono mt-0.5">Seguridad Eléctrica &amp; En Sitio</p>
+                  </div>
                 </div>
-                <p class="text-gray-400 text-xs leading-relaxed mb-4">
-                  Asistencia en sitio, reemplazo de componentes electrónicos y verificación de seguridad eléctrica.
+                <p class="text-gray-300 text-sm md:text-base leading-relaxed mb-5">
+                  Asistencia técnica en sitio, reemplazo de componentes electrónicos y verificación de seguridad
+                  eléctrica.
                 </p>
+                <div class="flex flex-wrap gap-2 mb-5">
+                  <span
+                    class="bg-black/70 text-xs md:text-sm px-2.5 py-1 rounded-lg border border-gray-800 text-gray-300 flex items-center gap-1.5"
+                  >
+                    <i class="fa-solid fa-plug-circle-check text-[var(--primary-color)]"></i>
+                    Tierras Físicas
+                  </span>
+                  <span
+                    class="bg-black/70 text-xs md:text-sm px-2.5 py-1 rounded-lg border border-gray-800 text-gray-300 flex items-center gap-1.5"
+                  >
+                    <i class="fa-solid fa-bolt-lightning text-[var(--primary-color)]"></i>
+                    Relés &amp; Contactores
+                  </span>
+                </div>
               </div>
-              <div class="pt-3 border-t border-gray-800/80 flex items-center justify-between text-[11px]">
-                <span class="text-gray-400 font-mono">
-                  <i class="fa-solid fa-camera text-[var(--primary-color)] mr-1"></i>
-                  5 Fotos
+              <div class="pt-4 border-t border-gray-800 flex items-center justify-between">
+                <span class="text-xs md:text-sm text-gray-300 font-mono flex items-center gap-1.5">
+                  <i class="fa-solid fa-images text-[var(--primary-color)]"></i>
+                  5 Fotografías
                 </span>
-                <span
-                  class="text-[var(--primary-color)] font-semibold flex items-center gap-1 group-hover:translate-x-1 transition"
+                <button
+                  class="inline-flex items-center gap-2 bg-[var(--primary-color)] hover:bg-[var(--primary-hover)] text-white text-xs md:text-sm font-bold px-4 py-2 rounded-lg transition shadow group-hover:shadow-[0_0_12px_var(--glow-color)] cursor-pointer"
+                  type="button"
                 >
-                  Ver galería
-                  <i class="fa-solid fa-arrow-right text-[10px]"></i>
-                </span>
+                  <i class="fa-solid fa-camera"></i>
+                  Ver Galería
+                </button>
               </div>
             </div>
           </div>
@@ -748,76 +936,80 @@
     </section>
     <!-- SOBRE MÍ -->
     <section
-      class="py-24 bg-fixed bg-cover bg-center relative"
+      class="py-28 bg-fixed bg-cover bg-center relative"
       id="arcade"
-      style="background-image: url(&quot;assets/img/IMG_2693.JPG&quot;)"
+      style="background-image: url(&quot;https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg&quot;)"
     >
-      <div class="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
-      <div class="relative z-10 max-w-6xl mx-auto px-6 text-center fade-up">
-        <h3 class="text-3xl md:text-4xl font-extrabold mb-10 text-[var(--primary-color)]">Sobre Mí</h3>
+      <div class="absolute inset-0 bg-black/85 backdrop-blur-sm"></div>
+      <div class="relative z-10 max-w-5xl mx-auto px-6 md:px-8 text-center fade-up">
+        <h3 class="text-3xl md:text-5xl font-extrabold mb-10 text-[var(--primary-color)]">Sobre Mí</h3>
         <div
-          class="max-w-3xl mx-auto bg-[rgba(22,27,34,0.9)] p-8 md:p-10 rounded-2xl border border-[var(--primary-color)] shadow-[0_0_20px_var(--glow-color)] pulse backdrop-blur-md"
+          class="max-w-4xl mx-auto bg-[rgba(21,26,34,0.95)] p-8 md:p-12 rounded-3xl border-2 border-[var(--primary-color)] shadow-[0_0_26px_var(--glow-color)] pulse backdrop-blur-md"
         >
-          <div class="flex justify-center mb-6">
+          <div class="flex justify-center mb-8">
             <img
               alt="Jhonnathan Medrano"
-              class="w-36 h-36 md:w-40 md:h-40 rounded-full border-4 border-[var(--primary-color)] shadow-[0_0_20px_var(--glow-color)] object-cover pulse"
-              src="assets/img/yo.png"
+              class="w-40 h-40 md:w-48 md:h-48 rounded-full border-4 border-[var(--primary-color)] shadow-[0_0_24px_var(--glow-color)] object-cover pulse"
+              onerror="
+                this.onerror = null;
+                this.src = 'assets/img/yo.png';
+              "
+              src="https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg"
             />
           </div>
-          <p class="text-gray-200 mb-8 leading-relaxed text-base md:text-lg font-light">
+          <p class="text-gray-200 mb-8 leading-relaxed text-lg md:text-xl font-normal">
             Técnico Especialista en Electrónica y Telecomunicaciones con sólida experiencia internacional en soporte IT,
             sistemas de geolocalización (GPS) y mantenimiento de hardware de entretenimiento.
           </p>
           <a
-            class="bg-[var(--primary-color)] hover:bg-[var(--primary-hover)] px-8 py-3.5 rounded-xl font-bold inline-flex items-center gap-2 pulse text-white transition shadow-lg"
+            class="bg-[var(--primary-color)] hover:bg-[var(--primary-hover)] px-9 py-4 rounded-xl text-lg font-bold inline-flex items-center gap-3 pulse text-white transition shadow-xl"
             href="https://raw.githubusercontent.com/JoNB3x/jmedranoa/main/assets/img/CV_Jhonnathan_Medrano_2026.pdf"
             target="_blank"
           >
-            <i class="fa-solid fa-file-pdf"></i>
+            <i class="fa-solid fa-file-pdf text-xl"></i>
             Ver Curriculum Vitae
           </a>
         </div>
       </div>
     </section>
     <!-- CONTACTO -->
-    <section class="py-24 bg-black/70 relative" id="contacto">
-      <div class="max-w-4xl mx-auto px-6 text-center fade-up">
-        <span class="text-[var(--primary-color)] text-xs font-bold tracking-widest uppercase mb-2 block">
+    <section class="py-28 bg-black/80 relative" id="contacto">
+      <div class="max-w-5xl mx-auto px-6 md:px-8 text-center fade-up">
+        <span class="text-[var(--primary-color)] text-sm md:text-base font-bold tracking-widest uppercase mb-3 block">
           Comunicación Directa
         </span>
-        <h3 class="text-3xl md:text-4xl font-extrabold mb-4 text-white">
+        <h3 class="text-3xl md:text-5xl font-extrabold mb-5 text-white">
           ¿Tienes un proyecto o requieres
           <span class="text-[var(--primary-color)]">soporte técnico?</span>
         </h3>
-        <p class="text-gray-400 mb-10 max-w-lg mx-auto text-sm md:text-base">
+        <p class="text-gray-300 mb-12 max-w-2xl mx-auto text-base md:text-xl leading-relaxed">
           Atención personalizada para centros recreativos, empresas y locales comerciales.
         </p>
-        <div class="flex flex-col sm:flex-row justify-center gap-4 max-w-md mx-auto">
+        <div class="flex flex-col sm:flex-row justify-center gap-5 max-w-lg mx-auto">
           <a
-            class="flex-1 bg-green-600 hover:bg-green-700 px-6 py-4 rounded-xl font-bold flex items-center justify-center gap-2 shadow-lg hover:shadow-green-500/30 transition text-white"
+            class="flex-1 bg-green-600 hover:bg-green-700 px-7 py-4 rounded-xl font-bold flex items-center justify-center gap-3 shadow-lg hover:shadow-green-500/30 transition text-white text-lg"
             href="https://wa.me/584140680824"
             target="_blank"
           >
-            <i class="fa-brands fa-whatsapp text-xl"></i>
+            <i class="fa-brands fa-whatsapp text-2xl"></i>
             WhatsApp Directo
           </a>
           <a
-            class="flex-1 bg-gray-800 hover:bg-gray-700 border border-gray-700 hover:border-gray-500 px-6 py-4 rounded-xl font-bold flex items-center justify-center gap-2 transition text-white"
+            class="flex-1 bg-gray-800 hover:bg-gray-700 border-2 border-gray-700 hover:border-gray-500 px-7 py-4 rounded-xl font-bold flex items-center justify-center gap-3 transition text-white text-lg"
             href="mailto:jmedranoa@live.com"
           >
-            <i class="fa-solid fa-envelope text-xl text-[var(--primary-color)]"></i>
+            <i class="fa-solid fa-envelope text-2xl text-[var(--primary-color)]"></i>
             Enviar Correo
           </a>
         </div>
       </div>
     </section>
     <!-- FOOTER -->
-    <footer class="py-8 bg-black text-center text-gray-500 border-t border-gray-900 text-sm">
-      <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-4">
-        <div class="text-[var(--primary-color)] font-bold tracking-wider">JHONNATHAN MEDRANO</div>
-        <div>© 2026 Jhonnathan Medrano — Servicios Técnicos &amp; Arcade</div>
-        <div class="flex gap-4 text-gray-400 text-lg">
+    <footer class="py-10 bg-black text-center text-gray-400 border-t border-gray-900 text-sm md:text-base">
+      <div class="max-w-7xl mx-auto px-6 md:px-8 flex flex-col sm:flex-row justify-between items-center gap-5">
+        <div class="text-[var(--primary-color)] font-extrabold text-lg tracking-wider">JHONNATHAN MEDRANO</div>
+        <div class="text-gray-300">© 2026 Jhonnathan Medrano — Servicios Técnicos &amp; Arcade</div>
+        <div class="flex gap-5 text-gray-300 text-2xl">
           <a class="hover:text-[var(--primary-color)] transition" href="https://wa.me/584140680824" target="_blank">
             <i class="fa-brands fa-whatsapp"></i>
           </a>
@@ -833,46 +1025,46 @@
       id="galleryModal"
     >
       <div
-        class="relative w-full max-w-5xl bg-[#12161c] border border-[var(--primary-color)]/70 rounded-2xl shadow-[0_0_35px_rgba(255,79,0,0.4)] flex flex-col max-h-[95vh] overflow-hidden"
+        class="relative w-full max-w-5xl bg-[#12161c] border-2 border-[var(--primary-color)]/70 rounded-2xl shadow-[0_0_35px_rgba(255,79,0,0.4)] flex flex-col max-h-[95vh] overflow-hidden"
       >
         <!-- Encabezado del Modal -->
-        <div class="flex items-center justify-between px-5 py-4 border-b border-gray-800 bg-[#161B22]/90">
-          <div class="flex items-center gap-3">
+        <div class="flex items-center justify-between px-6 py-4 border-b border-gray-800 bg-[#161B22]/95">
+          <div class="flex items-center gap-3.5">
             <div
-              class="w-9 h-9 rounded-lg bg-[var(--primary-color)]/20 border border-[var(--primary-color)] flex items-center justify-center text-[var(--primary-color)] text-sm"
+              class="w-10 h-10 rounded-xl bg-[var(--primary-color)]/20 border border-[var(--primary-color)] flex items-center justify-center text-[var(--primary-color)] text-base"
             >
               <i class="fa-solid fa-camera"></i>
             </div>
             <div>
-              <div class="flex items-center gap-2">
-                <h4 class="text-base md:text-lg font-bold text-white leading-tight" id="modalProjectTitle">Proyecto</h4>
+              <div class="flex items-center gap-2.5">
+                <h4 class="text-lg md:text-xl font-bold text-white leading-tight" id="modalProjectTitle">Proyecto</h4>
                 <span
-                  class="text-[10px] uppercase font-mono px-2 py-0.5 rounded bg-[var(--primary-color)] text-white font-bold"
+                  class="text-xs uppercase font-mono px-2.5 py-0.5 rounded-md bg-[var(--primary-color)] text-white font-bold"
                   id="modalProjectBadge"
                 >
                   Internacional
                 </span>
               </div>
-              <p class="text-xs text-gray-400 flex items-center gap-1 mt-0.5" id="modalProjectLocation">
-                <i class="fa-solid fa-location-dot text-[var(--primary-color)] text-[10px]"></i>
+              <p class="text-xs md:text-sm text-gray-300 flex items-center gap-1.5 mt-0.5" id="modalProjectLocation">
+                <i class="fa-solid fa-location-dot text-[var(--primary-color)] text-xs"></i>
                 Ubicación
               </p>
             </div>
           </div>
           <div class="flex items-center gap-3">
             <span
-              class="text-xs font-mono bg-black/60 border border-gray-800 text-gray-300 px-3 py-1 rounded-full"
+              class="text-xs md:text-sm font-mono bg-black/70 border border-gray-800 text-gray-200 px-3.5 py-1.5 rounded-full"
               id="modalPhotoCounter"
             >
               Foto 1 de 5
             </span>
             <button
               aria-label="Cerrar modal"
-              class="w-9 h-9 rounded-lg bg-gray-800/80 hover:bg-[var(--primary-color)] hover:text-white text-gray-400 transition flex items-center justify-center cursor-pointer"
+              class="w-10 h-10 rounded-xl bg-gray-800/80 hover:bg-[var(--primary-color)] hover:text-white text-gray-300 transition flex items-center justify-center cursor-pointer"
               id="modalCloseBtn"
               type="button"
             >
-              <i class="fa-solid fa-xmark text-lg"></i>
+              <i class="fa-solid fa-xmark text-xl"></i>
             </button>
           </div>
         </div>
@@ -889,34 +1081,37 @@
           <!-- Botones de navegación Anterior / Siguiente -->
           <button
             aria-label="Foto anterior"
-            class="absolute left-3 md:left-5 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-black/75 hover:bg-[var(--primary-color)] text-white border border-gray-700 hover:border-[var(--primary-color)] transition flex items-center justify-center shadow-lg cursor-pointer"
+            class="absolute left-3 md:left-5 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/80 hover:bg-[var(--primary-color)] text-white border border-gray-700 hover:border-[var(--primary-color)] transition flex items-center justify-center shadow-lg cursor-pointer"
             id="modalPrevBtn"
             type="button"
           >
-            <i class="fa-solid fa-chevron-left"></i>
+            <i class="fa-solid fa-chevron-left text-lg"></i>
           </button>
           <button
             aria-label="Foto siguiente"
-            class="absolute right-3 md:right-5 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-black/75 hover:bg-[var(--primary-color)] text-white border border-gray-700 hover:border-[var(--primary-color)] transition flex items-center justify-center shadow-lg cursor-pointer"
+            class="absolute right-3 md:right-5 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/80 hover:bg-[var(--primary-color)] text-white border border-gray-700 hover:border-[var(--primary-color)] transition flex items-center justify-center shadow-lg cursor-pointer"
             id="modalNextBtn"
             type="button"
           >
-            <i class="fa-solid fa-chevron-right"></i>
+            <i class="fa-solid fa-chevron-right text-lg"></i>
           </button>
           <!-- Pie de foto técnico -->
           <div
-            class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black via-black/80 to-transparent p-4 text-left"
+            class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black via-black/85 to-transparent p-5 text-left"
           >
-            <p class="text-xs md:text-sm text-gray-200 font-medium max-w-3xl flex items-center gap-2" id="modalCaption">
+            <p
+              class="text-sm md:text-base text-gray-100 font-medium max-w-3xl flex items-center gap-2.5"
+              id="modalCaption"
+            >
               <i class="fa-solid fa-wrench text-[var(--primary-color)]"></i>
               <span>Descripción técnica de la fotografía</span>
             </p>
           </div>
         </div>
         <!-- Tira de Miniaturas (Thumbnails) -->
-        <div class="p-3 bg-[#10141a] border-t border-gray-800">
+        <div class="p-3.5 bg-[#10141a] border-t border-gray-800">
           <div
-            class="modal-thumbs flex gap-2.5 overflow-x-auto pb-1 justify-start md:justify-center items-center"
+            class="modal-thumbs flex gap-3 overflow-x-auto pb-1 justify-start md:justify-center items-center"
             id="modalThumbnails"
           >
             <!-- Se llena dinámicamente con JS -->
@@ -941,7 +1136,7 @@
       document.querySelectorAll(".fade-up, .fade-in").forEach((el) => observer.observe(el));
 
       // BASE DE DATOS DE FOTOGRAFÍAS POR PROYECTO
-      // Rutas oficiales configuradas bajo: assets/img/ con fallback temático de alta resolución listo para usar
+      // Rutas oficiales configuradas bajo assets/img/ y github con fallback de alta fidelidad
       const galleryData = {
         gametime: {
           title: "Game Time Inc.",
@@ -1114,7 +1309,7 @@
           category: "Nacional",
           photos: [
             {
-              src: "assets/img/megajuegos-bqto-1.jpg",
+              src: "assets/img/MJlogo.png",
               fallback: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1200&q=80",
               caption: "Instalación y calibración de billeteros multimoneda y validadores de fichas.",
             },
@@ -1146,29 +1341,29 @@
           category: "Nacional",
           photos: [
             {
-              src: "assets/img/megajuegos-mcy-1.jpg",
+              src: "assets/img/MJlogo.png",
               fallback: "https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=1200&q=80",
-              caption: "Reparación de servomotores y potenciómetros en simuladores de carreras.",
+              caption: "Creacion de imagen corporativa con nuevo logo y diseño.",
             },
             {
-              src: "assets/img/megajuegos-mcy-2.jpg",
+              src: "assets/img/MJMcy.jpg",
               fallback: "https://images.unsplash.com/photo-1580894732444-8ecded7900cd?auto=format&fit=crop&w=1200&q=80",
-              caption: "Acondicionamiento y servicio correctivo en dispensadores de tickets.",
+              caption: "Acondicionamiento y Actualizacion de sala de videojuegos antes Super Maquinas.",
             },
             {
-              src: "assets/img/megajuegos-mcy-3.jpg",
+              src: "assets/img/MJMcy2.jpgg",
               fallback: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80",
-              caption: "Configuración de dip-switches para balances de dificultad y auditoría técnica.",
+              caption: "Modificacion de mesa Airhockey Dynamo a una version con iluminacion LED.",
             },
             {
-              src: "assets/img/megajuegos-mcy-4.jpg",
+              src: "assets/img/MJMcy3.jpg",
               fallback: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1200&q=80",
-              caption: "Reemplazo de bandas elásticas y correas de transmisión en juegos mecánicos.",
+              caption: "Restauracion de maquina de peleas a Ultra Street Figther IV ACE.",
             },
             {
-              src: "assets/img/megajuegos-mcy-5.jpg",
+              src: "assets/img/MJMcy4.jpg",
               fallback: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80",
-              caption: "Pruebas de ciclo de juego intenso y verificación de microcontroladores.",
+              caption: "Restauracion y Transformacion Maquina Alien a Transformers Human Alliance.",
             },
           ],
         },
@@ -1178,7 +1373,7 @@
           category: "Nacional",
           photos: [
             {
-              src: "assets/img/megajuegos-bar-1.jpg",
+              src: "assets/img/MJlogo.png",
               fallback: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80",
               caption: "Inspección de tierras físicas y acondicionamiento contra sobretensiones.",
             },
@@ -1265,7 +1460,7 @@
 
         modalTitle.textContent = project.title;
         modalBadge.textContent = project.category;
-        modalLocation.innerHTML = `<i class="fa-solid fa-location-dot text-[var(--primary-color)] text-[10px]"></i> ${project.location}`;
+        modalLocation.innerHTML = `<i class="fa-solid fa-location-dot text-[var(--primary-color)] text-xs"></i> ${project.location}`;
 
         // Generar tira de miniaturas
         modalThumbnails.innerHTML = "";
